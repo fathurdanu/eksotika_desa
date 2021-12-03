@@ -6,6 +6,8 @@ import 'package:eksotika_desa/presentation/widgets/map/giritengah/ngaglik.dart';
 import 'package:eksotika_desa/presentation/widgets/map/giritengah/onggosoro.dart';
 import 'package:flutter/material.dart';
 import 'package:eksotika_desa/presentation/widgets/split.dart';
+// import 'package:eksotika_desa/model/budaya.dart';
+import 'package:eksotika_desa/data/budaya.dart';
 
 class MainContent extends StatefulWidget {
   const MainContent({Key? key}) : super(key: key);
@@ -15,6 +17,11 @@ class MainContent extends StatefulWidget {
 }
 
 class _MainContentState extends State<MainContent> {
+  final _scrollController = ScrollController();
+  final _scrollController1 = ScrollController();
+  final _scrollController2 = ScrollController();
+  final _scrollController3 = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +36,15 @@ class _MainContentState extends State<MainContent> {
   }
 
   Container _content() {
+    // var countKalitengah =
+    //     daftarBudaya.where((c) => c.dusun == "Kalitengah").toList().length;
+    // var countGendangSambu =
+    //     daftarBudaya.where((c) => c.dusun == "GendangSambu").toList().length;
+    // var countOnggosoro =
+    //     daftarBudaya.where((c) => c.dusun == "Onggosoro").toList().length;
+    // var countSemuaDusun =
+    //     daftarBudaya.where((c) => c.dusun == "Semua Dusun").toList().length;
+    print("${daftarBudaya[0].fotoPath}utama.jpg");
     return Container(
       color: Colors.black54,
       padding: const EdgeInsets.all(20.0),
@@ -44,40 +60,18 @@ class _MainContentState extends State<MainContent> {
             ),
             SizedBox(
               height: 150,
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: 15,
-                itemBuilder: (BuildContext context, int index) => Card(
-                  child: Center(
-                      child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            width: 120,
-                            padding: EdgeInsets.all(3),
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(const Radius.circular(80)),
-                                color: Colors.white),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(80.0),
-                              child: AspectRatio(
-                                child: Image.asset(
-                                  'assets/eksotikadesa_hitam_anyar.png',
-                                ),
-                                aspectRatio: 1 / 1,
-                              ),
-                            ),
-                          ),
-                          Text("name")
-                        ],
-                      ),
-                    ],
-                  )),
+              child: Scrollbar(
+                isAlwaysShown: true,
+                controller: _scrollController,
+                child: ListView.builder(
+                  controller: _scrollController,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: daftarBudaya.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      (daftarBudaya[index].dusun == "Kalitengah")
+                          ? CardBudaya(index: index)
+                          : SizedBox(),
                 ),
               ),
             ),
@@ -88,40 +82,18 @@ class _MainContentState extends State<MainContent> {
             ),
             SizedBox(
               height: 150,
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: 15,
-                itemBuilder: (BuildContext context, int index) => Card(
-                  child: Center(
-                      child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            width: 120,
-                            padding: EdgeInsets.all(3),
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(const Radius.circular(80)),
-                                color: Colors.white),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(80.0),
-                              child: AspectRatio(
-                                child: Image.asset(
-                                  'assets/eksotikadesa_hitam_anyar.png',
-                                ),
-                                aspectRatio: 1 / 1,
-                              ),
-                            ),
-                          ),
-                          Text("name")
-                        ],
-                      ),
-                    ],
-                  )),
+              child: Scrollbar(
+                isAlwaysShown: true,
+                controller: _scrollController1,
+                child: ListView.builder(
+                  controller: _scrollController1,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: daftarBudaya.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      (daftarBudaya[index].dusun == "Gendangsambu")
+                          ? CardBudaya(index: index)
+                          : SizedBox(),
                 ),
               ),
             ),
@@ -132,40 +104,18 @@ class _MainContentState extends State<MainContent> {
             ),
             SizedBox(
               height: 150,
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: 15,
-                itemBuilder: (BuildContext context, int index) => Card(
-                  child: Center(
-                      child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            width: 120,
-                            padding: EdgeInsets.all(3),
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(const Radius.circular(80)),
-                                color: Colors.white),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(80.0),
-                              child: AspectRatio(
-                                child: Image.asset(
-                                  'assets/eksotikadesa_hitam_anyar.png',
-                                ),
-                                aspectRatio: 1 / 1,
-                              ),
-                            ),
-                          ),
-                          Text("name")
-                        ],
-                      ),
-                    ],
-                  )),
+              child: Scrollbar(
+                isAlwaysShown: true,
+                controller: _scrollController2,
+                child: ListView.builder(
+                  controller: _scrollController2,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: daftarBudaya.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      (daftarBudaya[index].dusun == "Onggosoro")
+                          ? CardBudaya(index: index)
+                          : SizedBox(),
                 ),
               ),
             ),
@@ -176,40 +126,18 @@ class _MainContentState extends State<MainContent> {
             ),
             SizedBox(
               height: 150,
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: 15,
-                itemBuilder: (BuildContext context, int index) => Card(
-                  child: Center(
-                      child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            width: 120,
-                            padding: EdgeInsets.all(3),
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(const Radius.circular(80)),
-                                color: Colors.white),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(80.0),
-                              child: AspectRatio(
-                                child: Image.asset(
-                                  'assets/eksotikadesa_hitam_anyar.png',
-                                ),
-                                aspectRatio: 1 / 1,
-                              ),
-                            ),
-                          ),
-                          Text("name")
-                        ],
-                      ),
-                    ],
-                  )),
+              child: Scrollbar(
+                isAlwaysShown: true,
+                controller: _scrollController3,
+                child: ListView.builder(
+                  controller: _scrollController3,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: daftarBudaya.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      (daftarBudaya[index].dusun == "Semua Dusun")
+                          ? CardBudaya(index: index)
+                          : SizedBox(),
                 ),
               ),
             ),
@@ -297,6 +225,56 @@ class _MainContentState extends State<MainContent> {
           ),
         ),
       ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _scrollController1.dispose();
+    _scrollController2.dispose();
+    _scrollController3.dispose();
+
+    // TODO: implement dispose
+    super.dispose();
+  }
+}
+
+class CardBudaya extends StatelessWidget {
+  int index;
+  CardBudaya({Key? key, required this.index}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Center(
+          child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Column(
+            children: [
+              Container(
+                height: 120,
+                width: 120,
+                padding: EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(const Radius.circular(80)),
+                    color: Colors.white),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: AspectRatio(
+                    child: Image.asset(
+                      '${daftarBudaya[index].fotoPath}utama.jpg',
+                    ),
+                    aspectRatio: 1,
+                  ),
+                ),
+              ),
+              Text(daftarBudaya[index].namaBudaya),
+            ],
+          ),
+        ],
+      )),
     );
   }
 }
