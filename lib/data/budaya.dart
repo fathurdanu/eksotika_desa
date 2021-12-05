@@ -2,27 +2,30 @@ import 'package:eksotika_desa/model/budaya.dart';
 
 List<Budaya> daftarBudaya = [
   Budaya(
-    namaBudaya: "Silat Jawa",
-    teksPath: "data/gendangsambu/olah_kanuragan/content.txt",
-    fotoPath: "data/gendangsambu/olah_kanuragan/FOTO/",
-    dusun: "Gendangsambu",
-    kategori: "Seni",
-    videoPath: "data/gendangsambu/olah_kanuragan/VIDEO/",
-  ),
+      namaBudaya: "Silat Jawa",
+      teksPath: "data/gendangsambu/olah_kanuragan/content.txt",
+      fotoPath: "data/gendangsambu/olah_kanuragan/FOTO/",
+      dusun: "Gendangsambu",
+      kategori: "Seni",
+      videoPath: "data/gendangsambu/olah_kanuragan/VIDEO/",
+      konten:
+          "Pencak silat merupakan salah satu seni beladiri tradisional nusatara, biasanya setiap daerah memiliki aliran seni beladiri yang khas salah satunya adalah Silat Jawa. Di dsun Mijil desa Giritengah, terdapat pencak silat jawa/olah kanuragan yang sejak dulu dilakukan oleh sebagian masyarkat yang menyukai seni beladiri tersebut. Mbah irfandi (48 tahun) merupakan salah satu orang yang telah mengusai teknik dan gerakan pencak silat jawa. Dahulu ia mempelajari pencak tersebut dari guru spiritualnya pada diera 2000-an. Gerakan pencak silat ini kebanyakan diambil dari gerakan hewan diantaranya yaitu meniru gerakan monyet, gerakan hariamau, ataupun gerakan ular. Manfaat yang bisa didapat dari seni bela diri pencak silat jawa diantaranya adapat melatih mental, melatih, konsentrasi, melatih kewaspadaan, melatih kepekaan, mengendalikan emosi, kedisiplinan, menambah pengetahuan, menjaga kesehatan jasmani dan rohani pesilatnya.Bagi yang mempelajari ataupun yang sudah menguasai seni bela diri pencak silat ada,  pantangan yang harus dijauhi yakni mo limo (5 perkara) yakni Madat, yang artinya tidak diperbolehkan mengisap candu atau penggunaan obat-obatan terlarang, terutama yang dilarang oleh ajaran Agama dan menyalahi aturan undang-undang. Madon, artinya tidak diperbolehkan bermain perempuan, madon adalah istilah untuk wanita yaitu wadon, sedangkan penambahan m di depan memberikan arti bermain. oleh karena itu di artikan bermain perempuan, dan hal ini yang wajib dihindari oleh para lelaki. namun demikian sekarang ini bukan hanya kaum pria yang bermain wanita. Mabok /Minum, artinya tidak boleh minum minuman keras atau hal yang memabukkan, karena mabuk juga sangat dilarang oleh agama dan bisa menjadikan rusaknya akhlak dan hancurnya kehidupan berumah tangga. Maling, artinya tidak boleh mencuri, mengambil barang yang bukan haknya. perbuatan ini sangat tidak di sukai oleh Allah SWT, dilarang dalam agama dan undang-undang negara. Terakhir adalah main, main diistilahkan dengan bermain judi, dalam bentuk apapun. main juga merupakan perbuatan hina yang menyimpang dari ajaran agama."),
   Budaya(
-    namaBudaya: "Jamu Ki Sukiyat",
-    teksPath: "data/kalitengah/jamu/content.txt",
-    fotoPath: "data/kalitengah/jamu/FOTO/",
-    dusun: "Kalitengah",
-    kategori: "Wong Pinter",
-    videoPath: "data/kalitengah/jamu/VIDEO/",
-  ),
+      namaBudaya: "Jamu Ki Sukiyat",
+      teksPath: "data/kalitengah/jamu/content.txt",
+      fotoPath: "data/kalitengah/jamu/FOTO/",
+      dusun: "Kalitengah",
+      kategori: "Wong Pinter",
+      videoPath: "data/kalitengah/jamu/VIDEO/",
+      konten:
+          "Jamu adalah sebutan obat tradisional herbal alami asli Indonesia. Jamu dibuat dari  bahan-bahan alami yang berasal dari bagian tumbuhan, seperti daun-daunan, rimpang (akar-akaran), kulit batang, rempah-rempah dan buah.\n Sebagaian orang lebih percaya jamu sebagai alternatif dengan menggunakan obat-obatan herbal karena dianggap bersifat alami, sehingga terbebas dari efek samping yang tidak diinginkan. Ki Sukiyat (43 tahun) biasanya membuat jamu kebugaran untuk dikonsumsi setiap hari. Jamu yang dibuat berbahan seperti empon-empon, kulit kayu manis batang serai, buah pala, kulit kayu secang. Bahan tersebut kemudian dimasukan kedalam kuali ditambah air secukupnya lalu dimasak di atas tungku api selama 30 menit. Jamu tersebut tidak diperjualbelikan oleh Ki Sukiyat, namun pada waktu sore setelah sholat maghrib biasanya beliau menawarkan kepada para jamaah masjid untuk menikmatinya, masyarakat sendiri percaya jamu buatan Ki Sukiyat mampu menjaga kebugaran tubuh, karena ketika malam meminumnya, keesokan harinya badan terasa enteng atau bugar. \n Selain membuat jamu kebugaran seringkali Ki Sukiyat diminta orang dari luar daerah untuk membuat jamu untuk berbagai macam penyakit, salah satunya adalah jamu untuk orang stroke ringan, bahan yang dibutuhkan yaitu akar alang-alang, kulit kayu secang, kulit kayu manis, dlingo, bangle, akar kangkung, daun keji beling dan daun sambung nyowo. Dalam pembuatan jamu bahan-bahan didapatkan dari sekitar rumah atau kebun yang memang ditanam untuk bahan membuat jamu tradisional. "),
   Budaya(
-    namaBudaya: "Nawu Sendang",
-    teksPath: "data/kalitengah/nawu_sendang/content.txt",
-    fotoPath: "data/kalitengah/nawu_sendang/FOTO/",
-    dusun: "Kalitengah",
-    kategori: "Tempat Sakral",
-    videoPath: "data/kalitengah/nawu_sendang/VIDEO/",
-  ),
+      namaBudaya: "Nawu Sendang",
+      teksPath: "data/kalitengah/nawu_sendang/content.txt",
+      fotoPath: "data/kalitengah/nawu_sendang/FOTO/",
+      dusun: "Kalitengah",
+      kategori: "Tempat Sakral",
+      videoPath: "data/kalitengah/nawu_sendang/VIDEO/",
+      konten:
+          "Malam Satu Suro, umumnya masyarakat jawa melakukan laku tirakat lek-lekan atau tidak tidur semalam suntuk dan tuguran (perenungan diri sambil memanjatkan doa), bahkan beberapa orang memilih tirakat di tempat sakral seperti pegungungan ataupun makam keramat. Memperingati malam satu suro harus dijalani dengan khusuk. Ritual dilakukan secara pribadi dengan dengan membersihkan diri secara lahir dan batin, intropeksi serta bersyukur kepada Allah dengan menyakini hanya Allah yang membuat hidup dan menghidupi dunia seisinya.\nDi desa Giritengah, Malam Satu Suro diperingati  secara bersama-sama yang dilaksanakan di setiap masjid atau mushola yang ada di dusun-dusun desa Giritengah. Peringatan Malam Satu Suro dimulai pada sore hari menjelang maghrib. Warga masyarakat membaca doa akhir tahun dan setelah sholat magrib membaca doa awal tahun dilanjutkan membaca yasin sebanyak tiga kali. Malam Satu Suro juga dilakukan oleh warga secara pribdi di rumah masing-masing dan ada juga yang melakukan pendakian Puncak Suroloyo.\nMakna Malam Satu Suro bagi masyarakat jawa sebagai pengingat. Pada bulan Suro, sebagai masyarakat jawa memiliki keyakinan untuk tetap ‘eling lan waspodo’. Eling berarti ingat siapa dirinya dan dimana kedudukannya sebagai ciptaan tuhan, Sedangkan waspodo atau waspada berarti sebagai manusia harus terjaga serta waspada dari godaan yang menjerumuskan.\nPada pagi harinya di desa Giritengah terdapat salah satu ritual disetiap tanggal satu suro yakni ritual Nawu Sendang. Sendang Suruh adalah salah satu mata air yang terdapat di desa Giritengah yang terletak diantara dusun Gedang Sambu dan dusun Ngaglik.  Untuk mencapai Sendang Suruh dapat ditempuh dengan berjalan kaki kurang lebih 3 sampai 5 menit dari parkiran rumah warga. \nSendang Suruh dahulu merupakan tempat singgah Pangeran Diponegoro (Raden Ontowiryo) beserta para pengikutnya, diantaranya adalah Nyai Ageng Serang dan Tumenggung Malang Duryo pada saat perang Gerilya melawan penjajah tahun 1825-1830. Di tempat ini pangeran Diponegoro dan Nyai Ageng serang menyusun strategi perang, diantara kegiatan menyusun strategi perang pangeran Diponegoro menggunakan air sendang untuk bersuci.\nSendang suruh hingga kini masih di rawat oleh keturunan Tumenggung Malang Duryo. Dahulu, Nawu Sendang (bersih-bersih) dilakukan setiap hari kamis. Seiring berjalannya waktu,  pembersihan (nawu sendang) dilakukan dua kali dalam satu tahun yakni setiap tanggal 1 suro dalam penanggalan jawa dan tanggal 12 mulud dalam penanggalan jawa. \nNawu Sendang ini dilakukan oleh para warga keturunan dari Tumenggung Malang Duryo.  sebelum prosesi pembersihan sendang dilakukan, salah satu sesepuh dari keturunan Tumenggung Malang Duryo meletak sesajen berupa kembang setaman dan nasi putih, kemudian memohon izin kepada yang menunggu sendang tersebut. Menurut mbah Kasto Ikromo (69 tahun), pembersihan sendang sebagai sarana untuk memohon keselamatan dan ketentraman  bagi masyarakat disekitar sendang, serta bagi masyarakat desa Giritengah pada umumnya.\nSendang ini tidak pernah surut airnya pada musim kemarau dan juga tidak lebih pada musim penghujan. Banyak yang menyakini bahwa air dari sendang suruh tersebut bisa menjadi sarana menyembuhkan penyakit.  Dalam sendang tersebut juga terdapat dua ekor belut, warga sekitar tidak ada yang berani membawa pulang, apalagi samapi memasak belut tersebut karena belut ini diyakini oleh warga sebagai salah satu penghuni sendang.\nSetelah selesai pembersihan , warga hadir melakukan doa bersama memohon agar deberikan keselamatan dan kesejahteraan untuk warga desa Giritrngah, doa dipimpin oleh salah satu sesepuh yang diikuti seluruh warga yang hadir termasuk Perangkat Desa. Kegiatan ini  ditutup dengan makan bersama-sama di area Sendang."),
 ];

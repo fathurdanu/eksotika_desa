@@ -106,6 +106,7 @@ class HomePage extends StatelessWidget {
 
   Stack _background(BuildContext context) {
     return Stack(
+      alignment: Alignment.center,
       children: [
         Image.asset("assets/jathilan2_b&w.jpg"),
         Container(

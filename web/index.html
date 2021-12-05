@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -29,7 +30,49 @@
   <title>eksotika_desa</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <!-- Firebase Configuration -->
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyBLzZzZCHp6Dginj-6AYOOGvw6Q25-kNz0",
+      authDomain: "eksotika-desa.firebaseapp.com",
+      projectId: "eksotika-desa",
+      storageBucket: "eksotika-desa.appspot.com",
+      messagingSenderId: "540299228123",
+      appId: "1:540299228123:web:35c177e314db9cc6b1edfe"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <!-- <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-storage.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBLzZzZCHp6Dginj-6AYOOGvw6Q25-kNz0",
+      authDomain: "eksotika-desa.firebaseapp.com",
+      projectId: "eksotika-desa",
+      storageBucket: "eksotika-desa.appspot.com",
+      messagingSenderId: "540299228123",
+      appId: "1:540299228123:web:35c177e314db9cc6b1edfe"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script> -->
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -98,4 +141,5 @@
     }
   </script>
 </body>
+
 </html>

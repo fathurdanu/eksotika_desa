@@ -10,6 +10,7 @@ class Budaya {
   String videoPath;
   String dusun;
   String kategori;
+  String konten;
 
   Budaya({
     required this.namaBudaya,
@@ -18,6 +19,7 @@ class Budaya {
     required this.dusun,
     required this.kategori,
     required this.videoPath,
+    required this.konten,
   });
 
   factory Budaya.fromJson(Map<String, dynamic> json) {
@@ -28,6 +30,7 @@ class Budaya {
       videoPath: json['videoPath'],
       dusun: json['dusun'],
       kategori: json['kategori'],
+      konten: json['konten'],
     ));
   }
 
@@ -39,6 +42,7 @@ class Budaya {
     data['videoPath'] = videoPath;
     data['dusun'] = dusun;
     data['kategori'] = kategori;
+    data['konten'] = konten;
     return data;
   }
 }
