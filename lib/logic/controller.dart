@@ -8,8 +8,12 @@ class Controller extends ChangeNotifier {
 
   Future<dynamic> akses1Foto(String path) async {
     var link = await storage.ref("$path/utama.jpg").getDownloadURL();
-    return Image.network(
-      link,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Image.network(
+        link,
+        fit: BoxFit.cover,
+      ),
     );
   }
 

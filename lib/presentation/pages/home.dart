@@ -1,6 +1,9 @@
+// import 'package:eksotika_desa/logic/cubit/cubit/dusun_control_cubit.dart';
 import 'package:eksotika_desa/presentation/pages/main_content.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'dart:js' as js;
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,11 +14,13 @@ class HomePage extends StatelessWidget {
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
-          Stack(children: [
-            _background(context),
-            _title(context),
-            _main(context)
-          ]),
+          Stack(
+            children: [
+              _background(context),
+              // _title(context),
+              _main(context),
+            ],
+          ),
           _information(context),
         ],
       ),
@@ -27,8 +32,14 @@ class HomePage extends StatelessWidget {
       color: Colors.black87,
       child: Column(
         children: [
-          SizedBox(height: 50),
+          SizedBox(),
           _contact(),
+          // Padding(
+          //     padding: EdgeInsets.fromLTRB(40, 10, 40, 10),
+          //     child: Container(
+          //       height: 2,
+          //       color: Colors.white,
+          //     )),
           _logo(),
           SizedBox(height: 50),
         ],
@@ -43,7 +54,10 @@ class HomePage extends StatelessWidget {
         Container(
           color: Colors.transparent,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // js.context.callMethod(
+              //     'open', ['https://www.instagram.com/eksotikadesa/']);
+            },
             icon: FaIcon(
               FontAwesomeIcons.instagram,
               color: Colors.white,
@@ -53,9 +67,13 @@ class HomePage extends StatelessWidget {
         Container(
           color: Colors.transparent,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // js.context.callMethod('open', [
+              //   "https://web.whatsapp.com/send?phone=62xxxxxxxxxxx&text&app_absent=0"
+              // ]);
+            },
             icon: FaIcon(
-              FontAwesomeIcons.twitter,
+              FontAwesomeIcons.whatsapp,
               color: Colors.white,
             ),
           ),
@@ -63,9 +81,12 @@ class HomePage extends StatelessWidget {
         Container(
           color: Colors.transparent,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // js.context.callMethod(
+              //     'open', ["https://www.facebook.com/eksotikadesa"]);
+            },
             icon: FaIcon(
-              FontAwesomeIcons.youtube,
+              FontAwesomeIcons.facebook,
               color: Colors.white,
             ),
           ),
@@ -104,35 +125,19 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Stack _background(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Image.asset("assets/jathilan2_b&w.jpg"),
-        Container(
-          height: (9.0 / 16.0) * MediaQuery.of(context).size.width,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: <Color>[Color(0x00000000), Color(0xff000000)],
-              tileMode: TileMode.repeated,
-            ),
-          ),
-        ),
-      ],
+  Image _background(BuildContext context) {
+    return Image.asset(
+      "assets/jathilan2_half.jpg",
     );
   }
 
   Container _title(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.width / 3,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/eksotikadesa_putih_anyar.png"),
-          alignment: Alignment.centerRight,
+          // alignment: Alignment.centerRight,
         ),
       ),
     );

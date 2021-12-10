@@ -14,8 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Eksotika Desa',
       theme: ThemeData(
+        backgroundColor: Colors.black87,
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(

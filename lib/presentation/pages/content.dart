@@ -26,25 +26,35 @@ class _ContentPageState extends State<ContentPage> {
   Widget build(BuildContext context) {
     ambilData();
     return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.budaya.namaBudaya),
+        backgroundColor: Color(0xff212121),
+      ),
       body: Container(
         color: Colors.white38,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _viewSlider(),
-              Text(
-                widget.budaya.namaBudaya,
-                style: TextStyle(fontSize: 20),
-              ),
-              SizedBox(
+          child: Container(
+            color: Colors.black12,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _viewSlider(),
+                Text(
+                  widget.budaya.namaBudaya,
+                  style: TextStyle(fontSize: 30),
+                ),
+                SizedBox(height: 50),
+                SizedBox(
                   width: 700,
                   child: Text(
                     widget.budaya.konten.replaceAll('\n', '\n\n'),
                     textAlign: TextAlign.justify,
-                  ))
-            ],
+                  ),
+                ),
+                SizedBox(height: 100)
+              ],
+            ),
           ),
         ),
       ),
