@@ -94,15 +94,13 @@ class _MainContentState extends State<MainContent> {
                     },
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.only(left: 10, right: 10, bottom: 5),
-                      child: Text(
-                        daftarBudaya[index].namaBudaya,
-                        textAlign: TextAlign.center,
-                      )),
-                ),
+                Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.only(left: 10, right: 10, bottom: 5),
+                    child: Text(
+                      daftarBudaya[index].namaBudaya,
+                      textAlign: TextAlign.center,
+                    )),
               ],
             )),
           ),
@@ -123,6 +121,8 @@ class _MainContentState extends State<MainContent> {
       body: Container(
         color: Colors.black54,
         padding: const EdgeInsets.all(20.0),
+        height: double.infinity,
+        width: double.infinity,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: BlocBuilder<DusunControlCubit, DusunControlState>(
@@ -184,7 +184,9 @@ class _MainContentState extends State<MainContent> {
                                 index < daftarBudaya.length;
                                 index++)
                               (daftarBudaya[index].dusun == state.props[0])
-                                  ? cardBudaya(context, index)
+                                  ? SizedBox(
+                                      height: 180,
+                                      child: cardBudaya(context, index))
                                   : SizedBox(),
                           ],
                         ),
