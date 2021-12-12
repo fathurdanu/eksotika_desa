@@ -40,17 +40,21 @@ class _LegendState extends State<Legend> {
                     ListTile(
                       title: Row(
                         children: [
-                          Container(
-                            height: 15,
-                            width: 30,
-                            decoration: BoxDecoration(
-                                color: (daftarWarna[indx]["warna"]),
-                                borderRadius: BorderRadius.circular(3)),
+                          Flexible(
+                            child: Container(
+                              height: 15,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  color: (daftarWarna[indx]["warna"]),
+                                  borderRadius: BorderRadius.circular(3)),
+                            ),
                           ),
-                          SizedBox(
-                            width: 30,
+                          Flexible(
+                            child: SizedBox(
+                              width: 30,
+                            ),
                           ),
-                          Text((daftarWarna[indx]["kategori"]))
+                          Flexible(child: Text((daftarWarna[indx]["kategori"])))
                         ],
                       ),
                     )

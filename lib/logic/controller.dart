@@ -17,6 +17,13 @@ class Controller extends ChangeNotifier {
     );
   }
 
+  Future<dynamic> aksesHome1Photo(String path) async {
+    var link = await storage.ref("$path").getDownloadURL();
+    return Image.network(
+      link,
+    );
+  }
+
   Future<List<String>> aksesSemuaFoto(String path) async {
     var myList = await storage.ref(path).listAll();
     return await (_getDownloadLinks(myList.items));

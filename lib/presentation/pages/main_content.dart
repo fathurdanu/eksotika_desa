@@ -111,13 +111,29 @@ class _MainContentState extends State<MainContent> {
 
   Scaffold _content() {
     return Scaffold(
+      endDrawer: Legend(),
       drawerScrimColor: Colors.transparent,
       appBar: AppBar(
         title: Text("Daftar Budaya"),
         centerTitle: true,
         backgroundColor: Color(0xff212121),
+        actions: [
+          Builder(builder: (context) {
+            return Flexible(
+              child: TextButton(
+                child: Text(
+                  "Legenda",
+                  softWrap: false,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
+              ),
+            );
+          }),
+        ],
       ),
-      endDrawer: Legend(),
+
+      // endDrawer: Legend(),
       body: Container(
         color: Colors.black54,
         padding: const EdgeInsets.all(20.0),
@@ -147,24 +163,77 @@ class _MainContentState extends State<MainContent> {
                               ),
                               SizedBox(
                                 height: 180,
-                                child: Scrollbar(
-                                  isAlwaysShown: true,
-                                  controller: _scrollController[indx],
-                                  child: Container(
-                                    alignment: Alignment.centerLeft,
-                                    child: ListView.builder(
+                                child: Stack(
+                                  children: [
+                                    Scrollbar(
+                                      isAlwaysShown: true,
                                       controller: _scrollController[indx],
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: daftarBudaya.length,
-                                      itemBuilder:
-                                          (BuildContext context, int index) =>
+                                      child: Container(
+                                        alignment: Alignment.centerLeft,
+                                        child: ListView.builder(
+                                          controller: _scrollController[indx],
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: daftarBudaya.length,
+                                          itemBuilder: (BuildContext context,
+                                                  int index) =>
                                               (daftarBudaya[index].dusun ==
                                                       dusunGiritengah[indx])
                                                   ? cardBudaya(context, index)
                                                   : SizedBox(),
+                                        ),
+                                      ),
                                     ),
-                                  ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          _scrollController[indx].animateTo(
+                                              _scrollController[indx]
+                                                  .position
+                                                  .extentBefore,
+                                              duration:
+                                                  Duration(milliseconds: 300),
+                                              curve: Curves.fastOutSlowIn);
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Icon(
+                                            Icons.arrow_back,
+                                            color: Colors.black87,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          _scrollController[indx].animateTo(
+                                            _scrollController[indx]
+                                                .position
+                                                .extentAfter,
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                            curve: Curves.fastOutSlowIn,
+                                          );
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Icon(
+                                            Icons.arrow_forward,
+                                            color: Colors.black87,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],

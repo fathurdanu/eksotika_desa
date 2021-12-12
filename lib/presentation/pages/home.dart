@@ -1,12 +1,15 @@
 // import 'package:eksotika_desa/logic/cubit/cubit/dusun_control_cubit.dart';
+import 'package:eksotika_desa/logic/controller.dart';
 import 'package:eksotika_desa/presentation/pages/main_content.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'dart:js' as js;
+import 'dart:js' as js;
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+
+  Controller controller = Controller();
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,13 @@ class HomePage extends StatelessWidget {
         children: [
           Stack(
             children: [
-              _background(context),
+              FutureBuilder<dynamic>(
+                future: controller.aksesHome1Photo("jathilan2_half.jpg"),
+                builder: (context, snapshot) {
+                  return Container(child: snapshot.data);
+                },
+              ),
+              // _background(context),
               // _title(context),
               _main(context),
             ],
@@ -55,8 +64,8 @@ class HomePage extends StatelessWidget {
           color: Colors.transparent,
           child: IconButton(
             onPressed: () {
-              // js.context.callMethod(
-              //     'open', ['https://www.instagram.com/eksotikadesa/']);
+              js.context.callMethod(
+                  'open', ['https://www.instagram.com/eksotikadesa/']);
             },
             icon: FaIcon(
               FontAwesomeIcons.instagram,
@@ -82,8 +91,8 @@ class HomePage extends StatelessWidget {
           color: Colors.transparent,
           child: IconButton(
             onPressed: () {
-              // js.context.callMethod(
-              //     'open', ["https://www.facebook.com/eksotikadesa"]);
+              js.context.callMethod(
+                  'open', ["https://www.facebook.com/eksotikadesa"]);
             },
             icon: FaIcon(
               FontAwesomeIcons.facebook,
@@ -106,30 +115,51 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-              height: 100,
-              width: 100,
-              color: Colors.transparent,
-              child: Image.asset("assets/kemendikristekbud.png")),
+            height: 100,
+            width: 100,
+            color: Colors.transparent,
+            child: FutureBuilder<dynamic>(
+              future: controller.aksesHome1Photo("kemendikristekbud.png"),
+              builder: (context, snapshot) {
+                return Container(child: snapshot.data);
+              },
+            ),
+          ),
           Container(
-              height: 3 / 4 * 100,
-              width: 100,
-              color: Colors.transparent,
-              child: Image.asset("assets/logo_kabupaten_magelang.png")),
+            height: 3 / 4 * 100,
+            width: 100,
+            color: Colors.transparent,
+            child: FutureBuilder<dynamic>(
+              future: controller.aksesHome1Photo("logo_kabupaten_magelang.png"),
+              builder: (context, snapshot) {
+                return Container(child: snapshot.data);
+              },
+            ),
+          ),
           Container(
-              height: 100,
-              width: 100,
-              color: Colors.transparent,
-              child: Image.asset("assets/eksotikadesa_hitam_anyar.png")),
+            height: 100,
+            width: 100,
+            color: Colors.transparent,
+            child: FutureBuilder<dynamic>(
+              future:
+                  controller.aksesHome1Photo("eksotikadesa_hitam_anyar.png"),
+              builder: (context, snapshot) {
+                return Container(child: snapshot.data);
+              },
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Image _background(BuildContext context) {
-    return Image.asset(
-      "assets/jathilan2_half.jpg",
-    );
-  }
+  // Image _background(BuildContext context) {
+  //   return
+
+  //   Image.asset(
+  //     "assets/jathilan2_half.jpg",
+  //   );
+  // }
 
   Container _title(BuildContext context) {
     return Container(

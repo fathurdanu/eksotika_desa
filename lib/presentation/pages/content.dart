@@ -14,17 +14,18 @@ class ContentPage extends StatefulWidget {
 
 class _ContentPageState extends State<ContentPage> {
   Controller controller = Controller();
+  CarouselController carouselController = CarouselController();
   int current = 0;
-  late List<dynamic> alamat = [];
+  // late List<dynamic> alamat = [];
   late dynamic content;
 
-  void ambilData() async {
-    alamat = await controller.aksesSemuaFoto(widget.budaya.fotoPath);
-  }
+  // void ambilData() async {
+  //   alamat = await controller.aksesSemuaFoto(widget.budaya.fotoPath);
+  // }
 
   @override
   Widget build(BuildContext context) {
-    ambilData();
+    // print(alamat);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.budaya.namaBudaya),
@@ -62,33 +63,71 @@ class _ContentPageState extends State<ContentPage> {
   }
 
   Widget _viewSlider() {
-    return Container(
-      padding: EdgeInsets.all(50),
-      child: Center(
-        child: CarouselSlider(
-          options: CarouselOptions(
-              height: 400,
-              aspectRatio: 16 / 10,
-              autoPlay: true,
-              viewportFraction: 2.0,
-              enlargeCenterPage: false,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  current = index;
-                });
-              }),
-          items: alamat
-              .map((item) => SizedBox(
-                      child: AspectRatio(
-                    child: Image.network(
-                      item.toString(),
-                      fit: BoxFit.fitWidth,
-                    ),
-                    aspectRatio: 16 / 10,
-                  )))
-              .toList(),
-        ),
-      ),
+    return FutureBuilder<List<String>>(
+      future: controller.aksesSemuaFoto(widget.budaya.fotoPath),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasData) {
+          List<Widget> snap = [
+            for (int indx = 0; indx < snapshot.data.length; indx++)
+              SizedBox(
+                child: AspectRatio(
+                  child: Image.network(
+                    snapshot.data[indx],
+                    fit: BoxFit.fitWidth,
+                  ),
+                  aspectRatio: 16 / 9,
+                ),
+              ),
+          ];
+          return Container(
+            width: 1920,
+            height: 480,
+            padding: EdgeInsets.all(50),
+            child: Stack(
+              children: [
+                CarouselSlider(
+                  carouselController: carouselController,
+                  options: CarouselOptions(
+                    height: 400,
+                    aspectRatio: 16 / 9,
+                    autoPlay: true,
+                    viewportFraction: 2.0,
+                    enlargeCenterPage: false,
+                  ),
+                  items: snap,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    onPressed: () {
+                      // Use the controller to change the current page
+                      carouselController.previousPage();
+                    },
+                    icon: Icon(Icons.arrow_back),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                    onPressed: () {
+                      // Use the controller to change the current page
+                      carouselController.nextPage();
+                    },
+                    icon: Icon(Icons.arrow_forward),
+                  ),
+                ),
+                // Text(snapshot.data.toString())
+              ],
+            ),
+          );
+        } else {
+          return SizedBox(
+            width: 1920,
+            height: 480,
+          );
+        }
+        ;
+      },
     );
   }
 
