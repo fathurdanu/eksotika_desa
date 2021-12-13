@@ -27,9 +27,23 @@ class _MainContentState extends State<MainContent> {
 
   List<dynamic> clickedMap = [];
 
-  List<ScrollController> _scrollController = [
+  final List<ScrollController> _scrollController = [
     for (int indx = 0; indx < 4; indx++) ScrollController()
   ];
+
+  final List<int> _numberOfImagesByDusun = [];
+  List<int> scrollStatus = [0, 0, 0, 0];
+
+  _MainContentState() {
+    countTheNumberOfImageByDusun();
+  }
+
+  countTheNumberOfImageByDusun() {
+    for (int indx = 0; indx < dusunGiritengah.length; indx++) {
+      _numberOfImagesByDusun.add(getImageNumberByDusun(dusunGiritengah[indx]));
+    }
+  }
+
   final List<String> dusunGiritengah = [
     "Kalitengah",
     "Gendangsambu",
@@ -46,8 +60,19 @@ class _MainContentState extends State<MainContent> {
     return Colors.white;
   }
 
+  int getImageNumberByDusun(String dusun) {
+    int counter = 0;
+    for (int indx = 0; indx < daftarBudaya.length; indx++) {
+      if (daftarBudaya[indx].dusun == dusun) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
   @override
   Widget build(BuildContext context) {
+    // print(_numberOfImagesByDusun);
     return BlocProvider<DusunControlCubit>(
       create: (context) => DusunControlCubit(),
       child: Scaffold(
@@ -64,6 +89,13 @@ class _MainContentState extends State<MainContent> {
         ),
       ),
     );
+  }
+
+  jumpToItem(int item, int indx) {
+    final width =
+        _scrollController[indx].position.maxScrollExtent + context.size!.width;
+    final value = item / _numberOfImagesByDusun[indx] * width;
+    _scrollController[indx].jumpTo(value);
   }
 
   SizedBox cardBudaya(BuildContext context, int index) {
@@ -188,13 +220,18 @@ class _MainContentState extends State<MainContent> {
                                       alignment: Alignment.centerLeft,
                                       child: GestureDetector(
                                         onTap: () {
-                                          _scrollController[indx].animateTo(
-                                              _scrollController[indx]
-                                                  .position
-                                                  .extentBefore,
-                                              duration:
-                                                  Duration(milliseconds: 300),
-                                              curve: Curves.fastOutSlowIn);
+                                          scrollStatus[indx] =
+                                              scrollStatus[indx] - 1 < 0
+                                                  ? scrollStatus[indx]
+                                                  : scrollStatus[indx] - 1;
+                                          jumpToItem(scrollStatus[indx], indx);
+                                          // _scrollController[indx].animateTo(
+                                          //     _scrollController[indx]
+                                          //         .position
+                                          //         .extentBefore,
+                                          //     duration:
+                                          //         Duration(milliseconds: 300),
+                                          //     curve: Curves.fastOutSlowIn);
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -212,14 +249,19 @@ class _MainContentState extends State<MainContent> {
                                       alignment: Alignment.centerRight,
                                       child: GestureDetector(
                                         onTap: () {
-                                          _scrollController[indx].animateTo(
-                                            _scrollController[indx]
-                                                .position
-                                                .extentAfter,
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            curve: Curves.fastOutSlowIn,
-                                          );
+                                          scrollStatus[
+                                              indx] = scrollStatus[indx] + 1 >=
+                                                  _numberOfImagesByDusun[indx]
+                                              ? scrollStatus[indx]
+                                              : scrollStatus[indx] + 1;
+                                          jumpToItem(scrollStatus[indx], indx);
+                                          // _scrollController[indx].animateTo(
+                                          //   _scrollController[indx]
+                                          //       .position
+                                          //       .extentAfter,
+                                          //   duration:
+                                          //       Duration(milliseconds: 300),
+                                          //   curve: Curves.fastOutSlowIn,
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
